@@ -1,0 +1,250 @@
+📌 Project Title
+
+The Green Pantry – Premium Cloud Kitchen Website
+
+🎯 Project Goal
+
+Build a premium, minimal, and clean website for a cloud kitchen named The Green Pantry that sells healthy food.
+The brand focuses on wellness, freshness, and luxury — not fast food.
+
+🧾 Brand Details
+
+Brand Name: The Green Pantry
+
+Tagline: Healthy eating, crafted daily
+
+Main Categories:
+
+🥗 Salads
+
+🌯 Wraps
+
+🥤 Cold-Pressed Juices
+
+There are many food items inside each category, not just these three.
+
+🎨 Design Style (VERY IMPORTANT)
+
+Premium
+
+Minimal
+
+Clean
+
+Calm luxury
+
+Rich but subtle animations
+
+No funky colors
+
+No flashy effects
+
+Color Palette
+
+Primary: Soft olive / sage green
+
+Background: Off-white / cream
+
+Accent: Deep green
+
+Text: Dark charcoal (not pure black)
+
+Typography
+
+Headings: Elegant serif (Playfair Display / Cormorant-style)
+
+Body text: Clean sans-serif (Inter / Poppins-style)
+
+🏗 Website Structure
+1️⃣ Home Page
+
+Sections:
+
+Hero Section
+
+Headline: Healthy eating, crafted daily
+
+Subtext: Salads • Wraps • Cold-Pressed Juices
+
+Buttons:
+
+View Menu
+
+Order Now
+
+Main Categories Section
+
+3 cards only:
+
+Salads
+
+Wraps
+
+Cold-Pressed Juices
+
+Each card has:
+
+Image
+
+Short description
+
+“View Menu →” button
+
+Clicking any card opens the Full Menu Page with that category selected
+
+Why The Green Pantry
+
+Fresh ingredients
+
+No preservatives
+
+Made daily
+
+Healthy & balanced meals
+
+Available On
+
+Zomato
+
+Swiggy
+
+WhatsApp Order
+
+Customer Reviews
+
+Show rating and 3–5 testimonials
+
+2️⃣ Full Menu Page (IMPORTANT)
+
+Page title: Our Menu
+
+Sticky category filter tabs:
+
+All
+
+Salads
+
+Wraps
+
+Juices
+
+Bowls
+
+Add-Ons
+
+Menu Items Layout:
+
+Grid layout
+
+Each item card includes:
+
+Image
+
+Item name
+
+Short description
+
+Tags (Vegan / High Protein / Low Cal)
+
+Price
+
+Order button
+
+Order button opens a modal with:
+
+Order via WhatsApp
+
+Order via Zomato
+
+Order via Swiggy
+
+WhatsApp message should auto-fill:
+
+Hi The Green Pantry, I’d like to order [Item Name].
+
+3️⃣ About Page
+
+Short brand story
+
+Focus on health, quality, and freshness
+
+4️⃣ Reviews Page (Optional or Section)
+
+Customer testimonials
+
+Simple and elegant layout
+
+5️⃣ Contact / Footer
+
+WhatsApp link
+
+Instagram link
+
+Phone number
+
+Text: Made with care 🌿
+
+✨ Animations & Interactions
+
+Use subtle animations only:
+
+Fade-in on scroll
+
+Slow slide-up transitions
+
+Slight hover zoom on images
+
+No bouncing animations
+
+No heavy parallax
+
+📱 Mobile First
+
+Fully responsive
+
+Category tabs scroll horizontally on mobile
+
+Sticky WhatsApp order button at bottom on mobile
+
+🛠 Technical Requirements
+
+Use modern HTML, CSS, and JavaScript
+
+Clean, well-structured code
+
+Reusable components
+
+Smooth UI transitions
+
+No backend required
+
+Focus on performance & accessibility
+
+🚫 Do NOT Include
+
+User login/signup
+
+Shopping cart system
+
+Payment gateway
+
+Over-designed UI
+
+Bright or neon colors
+
+📦 Deliverables
+
+Fully working website
+
+Clean folder structure
+
+Responsive layout
+
+Premium UI/UX
+
+Ready for hosting
+
+⚠️ Final Instruction
+
+Build this website exactly as described above.
+Focus on premium minimal design, smooth UX, and brand-level quality.
