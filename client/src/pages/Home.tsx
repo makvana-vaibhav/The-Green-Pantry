@@ -1,0 +1,182 @@
+import { motion } from "framer-motion";
+import { ArrowRight, Star, Leaf, Heart, Clock } from "lucide-react";
+import { Link } from "wouter";
+
+export default function Home() {
+  const categories = [
+    { 
+      name: "Fresh Salads", 
+      desc: "Crunchy, colorful, and packed with nutrients.", 
+      img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+      link: "/menu?category=Salads"
+    },
+    { 
+      name: "Wholesome Wraps", 
+      desc: "Perfectly balanced meals in a convenient hold.", 
+      img: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&q=80",
+      link: "/menu?category=Wraps"
+    },
+    { 
+      name: "Cold-Pressed Juices", 
+      desc: "100% natural hydration with zero added sugar.", 
+      img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
+      link: "/menu?category=Juices"
+    },
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center bg-secondary/30 overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10 pattern-dots" />
+        
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-left space-y-6"
+          >
+            <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm tracking-wide uppercase">
+              Premium Cloud Kitchen
+            </span>
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-accent leading-[1.1]">
+              Healthy eating, <br/>
+              <span className="italic text-primary">crafted daily.</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
+              Experience the luxury of fresh, organic ingredients delivered straight to your door. Nutrition has never tasted this good.
+            </p>
+            <div className="flex gap-4 pt-4">
+              <Link href="/menu" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-xl hover:-translate-y-1 transition-all">
+                View Menu <ArrowRight size={20} />
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+              {/* hero salad bowl overhead */}
+              <img 
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=80" 
+                alt="Fresh Salad Bowl" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            {/* Decorative blob */}
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10" />
+            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features / Why Us */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-accent mb-4">Why The Green Pantry?</h2>
+            <p className="text-muted-foreground">We believe food should be your medicine, but taste like a treat.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: Leaf, title: "100% Organic", desc: "Sourced directly from certified organic farms within 50 miles." },
+              { icon: Heart, title: "Nutrition First", desc: "Every meal is balanced by certified nutritionists for optimal health." },
+              { icon: Clock, title: "Freshly Prepared", desc: "Made to order. No preservatives, no frozen ingredients, ever." }
+            ].map((feature, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="p-8 rounded-2xl bg-secondary/30 text-center hover:bg-secondary/60 transition-colors"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-background text-primary mb-6 shadow-sm">
+                  <feature.icon size={32} />
+                </div>
+                <h3 className="text-xl font-serif font-semibold mb-3">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <h2 className="text-4xl font-serif font-bold text-accent mb-2">Curated Categories</h2>
+              <p className="text-muted-foreground">Explore our chef's selection.</p>
+            </div>
+            <Link href="/menu" className="hidden md:flex items-center gap-2 text-primary font-medium hover:underline">
+              View Full Menu <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {categories.map((cat, idx) => (
+              <Link key={idx} href={cat.link}>
+                <motion.div 
+                  whileHover={{ y: -8 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-6 relative">
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors z-10" />
+                    <img 
+                      src={cat.img} 
+                      alt={cat.name} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-serif font-semibold text-accent mb-2">{cat.name}</h3>
+                  <p className="text-muted-foreground">{cat.desc}</p>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="mt-8 text-center md:hidden">
+             <Link href="/menu" className="inline-flex items-center gap-2 text-primary font-medium">
+              View Full Menu <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 bg-accent text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-serif font-bold mb-4">Loved by the Community</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { name: "Priya S.", text: "The salads are incredibly fresh. It's my daily lunch staple now!", rating: 5 },
+              { name: "Rahul M.", text: "Finally a healthy option that actually tastes amazing. The dressings are superb.", rating: 5 },
+              { name: "Ananya K.", text: "Ordering is so easy and the packaging is eco-friendly. Highly recommend!", rating: 4 }
+            ].map((review, i) => (
+              <div key={i} className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+                <div className="flex gap-1 text-yellow-400 mb-4">
+                  {[...Array(review.rating)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
+                </div>
+                <p className="text-lg font-serif italic mb-6 text-white/90">"{review.text}"</p>
+                <p className="text-sm font-semibold tracking-wider uppercase text-white/70">— {review.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
