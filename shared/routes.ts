@@ -18,25 +18,22 @@ export const api = {
   menu: {
     list: {
       method: 'GET' as const,
-      path: '/api/menu',
+      path: '/.netlify/functions/menu',
       responses: {
         200: z.array(z.custom<typeof menuItems.$inferSelect>()),
       },
     },
     get: {
       method: 'GET' as const,
-      path: '/api/menu/:id',
+      path: '/.netlify/functions/menu-item',
       responses: {
         200: z.custom<typeof menuItems.$inferSelect>(),
         404: errorSchemas.notFound,
       },
     },
-    // We can add create/update/delete later if an admin panel is needed, 
-    // but for now the requirements are "No backend required" (interpreted as no admin panel/CMS for client).
-    // I'll add them just in case for seeding/management.
     create: {
       method: 'POST' as const,
-      path: '/api/menu',
+      path: '/.netlify/functions/menu',
       input: insertMenuItemSchema,
       responses: {
         201: z.custom<typeof menuItems.$inferSelect>(),
