@@ -23,7 +23,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
       animate={{ opacity: 1, y: 0 }}
       className="group bg-card rounded-2xl overflow-hidden shadow-sm border border-border/50 hover:shadow-xl hover:border-primary/20 transition-all duration-300"
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+      <div className="relative aspect-square overflow-hidden bg-secondary">
         {item.imageUrl ? (
           <img
             src={item.imageUrl}

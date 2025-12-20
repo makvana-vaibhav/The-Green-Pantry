@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
 import { Loader2, Search } from "lucide-react";
 
-const CATEGORIES = ["All", "Salads", "Wraps", "Juices", "Bowls", "Add-Ons"];
+const CATEGORIES = ["All", "Salads", "Wraps", "Drinks"];
 
 export default function MenuPage() {
   const { data: menuItems, isLoading, error } = useMenu();
@@ -51,7 +51,7 @@ export default function MenuPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Search & Filter Bar */}
-        <div className="sticky top-24 z-30 bg-background/95 backdrop-blur-xl py-4 mb-8 border-b border-border/50">
+        <div className="sticky top-24 z-30 bg-background/95 backdrop-blur-xl py-4 mb-0 border-b border-border/50">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             
             {/* Categories Scroll */}

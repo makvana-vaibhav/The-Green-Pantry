@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Leaf, Heart, Clock } from "lucide-react";
+import { ArrowRight, Leaf, Heart, Clock } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
       name: "Cold-Pressed Juices", 
       desc: "100% natural hydration with zero added sugar.", 
       img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
-      link: "/menu?category=Juices"
+      link: "/menu?category=Drinks"
     },
   ];
 
@@ -37,9 +37,6 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-left space-y-6"
           >
-            <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm tracking-wide uppercase">
-              Premium Cloud Kitchen
-            </span>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-accent leading-[1.1]">
               Healthy eating, <br/>
               <span className="italic text-primary">crafted daily.</span>
@@ -55,22 +52,20 @@ export default function Home() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative"
+            className="relative w-96 h-96"
           >
-            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
-              {/* hero salad bowl overhead */}
-              <img 
+            <div className="relative z-10 w-full h-full rounded-[3rem] overflow-hidden bg-white flex items-center justify-center">
+              <motion.img 
                 src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=80" 
                 alt="Fresh Salad Bowl" 
-                className="w-full h-auto object-cover"
+                className="w-80 h-80 object-cover"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               />
             </div>
-            {/* Decorative blob */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10" />
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10" />
           </motion.div>
         </div>
       </section>
@@ -128,7 +123,7 @@ export default function Home() {
                   whileHover={{ y: -8 }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden mb-6 relative">
+                  <div className="aspect-square rounded-2xl overflow-hidden mb-6 relative">
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors z-10" />
                     <img 
                       src={cat.img} 
@@ -151,32 +146,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-accent text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold mb-4">Loved by the Community</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: "Priya S.", text: "The salads are incredibly fresh. It's my daily lunch staple now!", rating: 5 },
-              { name: "Rahul M.", text: "Finally a healthy option that actually tastes amazing. The dressings are superb.", rating: 5 },
-              { name: "Ananya K.", text: "Ordering is so easy and the packaging is eco-friendly. Highly recommend!", rating: 4 }
-            ].map((review, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-                <div className="flex gap-1 text-yellow-400 mb-4">
-                  {[...Array(review.rating)].map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
-                </div>
-                <p className="text-lg font-serif italic mb-6 text-white/90">"{review.text}"</p>
-                <p className="text-sm font-semibold tracking-wider uppercase text-white/70">— {review.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

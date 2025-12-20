@@ -13,7 +13,7 @@ export default function About() {
             alt="Chef cooking" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/50" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1 
