@@ -11,6 +11,8 @@ import About from "@/pages/About";
 import NotFound from "@/pages/not-found";
 import ScrollToTop from "@/components/ScrollToTop";
 
+const isGitHubPages = import.meta.env.BASE_URL !== "/";
+
 function AppRoutes() {
   return (
     <Switch>
@@ -25,7 +27,7 @@ function AppRoutes() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router hook={useHashLocation}>
+      <Router hook={isGitHubPages ? useHashLocation : undefined}>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen font-sans">
           <Navigation />
