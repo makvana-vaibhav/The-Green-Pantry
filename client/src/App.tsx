@@ -1,4 +1,5 @@
 import { Switch, Route, Router } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -10,7 +11,6 @@ import About from "@/pages/About";
 import NotFound from "@/pages/not-found";
 import ScrollToTop from "@/components/ScrollToTop";
 
-// ... existing imports
 function AppRoutes() {
   return (
     <Switch>
@@ -25,7 +25,7 @@ function AppRoutes() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router base={import.meta.env.BASE_URL}>
+      <Router hook={useHashLocation}>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen font-sans">
           <Navigation />
