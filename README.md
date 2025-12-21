@@ -1,6 +1,6 @@
 # The Green Pantry
 
-Live Link : [link](https://greenpantry.netlify.app/)
+Live Link : [The Green Pantry](https://greenpantry.netlify.app/)
 
 The Green Pantry is a premium, performance-focused website created for a healthy cloud kitchen brand.  
 The goal of the project is to present the brand in a clean, minimal, and professional way while keeping the site fast, responsive, and easy to maintain.
