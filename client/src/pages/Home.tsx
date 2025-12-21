@@ -3,6 +3,8 @@ import { ArrowRight, Leaf, Heart, Clock, Star } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import bowlImage from "@assets/hero_bowl.png";
+import wrapImage from "@/assets/wrap.jpg";
+import juiceImage from "@/assets/juice.png";
 
 export default function Home() {
   const categories = [
@@ -15,13 +17,13 @@ export default function Home() {
     {
       name: "Wholesome Wraps",
       desc: "Perfectly balanced meals in a convenient hold.",
-      img: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&q=80",
+      img: wrapImage,
       link: "/menu?category=Wraps"
     },
     {
       name: "Cold-Pressed Juices",
       desc: "100% natural hydration with zero added sugar.",
-      img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=800&q=80",
+      img: juiceImage,
       link: "/menu?category=Drinks"
     },
   ];
@@ -50,6 +52,21 @@ export default function Home() {
     {
       text: "New. Food: 5/5 | Service: 5/5 | Atmosphere: 5/5",
       author: "ARYAN JADAV",
+      stars: 5
+    },
+    {
+      text: "Loved how the food is healthy without compromising on taste. The flavors were balanced and not heavy, which is hard to find in regular cloud kitchens! Food: 5/5 | Service: 5/5 | Atmosphere: 5/5",
+      author: "Kinjal Dangar",
+      stars: 5
+    },
+    {
+      text: "Tried the wraps and they were really good. Soft, well-filled, and flavorful without feeling oily or heavy. Perfect for a quick but healthy meal.",
+      author: "Vaibhav Makvana",
+      stars: 5
+    },
+    {
+      text: "The salads was fresh and tasteful. Highly recommended for perfect meal. Food: 5/5",
+      author: "Riddhi Goswami",
       stars: 5
     }
   ];
@@ -118,14 +135,14 @@ export default function Home() {
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-accent mb-4">Why The Green Pantry?</h2>
-            <p className="text-muted-foreground">We believe food should be your medicine, but taste like a treat.</p>
+            <p className="text-muted-foreground">We believe healthy food doesn’t have to be boring. Every bowl is made with farm-fresh ingredients, packed with nutrition, and crafted to delight your taste buds.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: Leaf, title: "100% Organic", desc: "Sourced directly from certified organic farms within 50 miles." },
-              { icon: Heart, title: "Nutrition First", desc: "Every meal is balanced by certified nutritionists for optimal health." },
-              { icon: Clock, title: "Freshly Prepared", desc: "Made to order. No preservatives, no frozen ingredients, ever." }
+              { icon: Leaf, title: "100% Veg", desc: "Sourced directly from certified organic farms within 50 miles." },
+              { icon: Heart, title: "Packed with Love", desc: "Every meal is balanced by certified nutritionists for optimal health." },
+              { icon: Clock, title: "Freshly Prepared", desc: "Made to order. No preservatives, ever." }
             ].map((feature, idx) => (
               <motion.div
                 key={idx}

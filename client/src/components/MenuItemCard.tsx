@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
-import { MessageCircle, ExternalLink, Leaf } from "lucide-react";
+import { ExternalLink, Leaf } from "lucide-react";
 import type { MenuItem } from "@/data/menu";
 
 interface MenuItemCardProps {
@@ -11,11 +11,7 @@ interface MenuItemCardProps {
 export function MenuItemCard({ item }: MenuItemCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Helper for WhatsApp ordering
-  const getWhatsappUrl = () => {
-    const text = `Hi The Green Pantry, I'd like to order ${item.name}.`;
-    return `https://wa.me/910000000000?text=${encodeURIComponent(text)}`;
-  };
+
 
   return (
     <motion.div
@@ -58,15 +54,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
           {item.description}
         </p>
 
-        {item.tags && item.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-6">
-            {item.tags.map((tag, i) => (
-              <span key={i} className="text-[10px] uppercase tracking-wider font-semibold text-primary bg-primary/10 px-2 py-1 rounded-md">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
@@ -84,15 +72,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
             </div>
 
             <div className="p-6 space-y-3">
-              <a
-                href={getWhatsappUrl()}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center gap-3 w-full p-4 rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors font-semibold shadow-lg shadow-[#25D366]/20"
-              >
-                <MessageCircle size={20} />
-                Order via WhatsApp
-              </a>
+
 
               <div className="grid grid-cols-2 gap-3">
                 <button
@@ -111,9 +91,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
                 </button>
               </div>
             </div>
-            <div className="px-6 py-4 bg-secondary/50 text-center text-xs text-muted-foreground">
-              Usually delivered within 45 minutes
-            </div>
+            {/* Removed delivery text as requested */}
           </DialogContent>
         </Dialog>
       </div>

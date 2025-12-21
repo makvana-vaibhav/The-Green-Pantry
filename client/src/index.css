@@ -6,21 +6,26 @@
 
 :root {
   /* HSL Values */
-  --background: 45 30% 96%;     /* Off-white / Cream */
-  --foreground: 220 15% 20%;    /* Dark Charcoal */
-  
-  --primary: 94 28% 45%;        /* Soft Olive / Sage */
+  --background: 45 30% 96%;
+  /* Off-white / Cream */
+  --foreground: 220 15% 20%;
+  /* Dark Charcoal */
+
+  --primary: 94 28% 45%;
+  /* Soft Olive / Sage */
   --primary-foreground: 45 30% 96%;
-  
-  --secondary: 94 20% 92%;      /* Very light sage */
+
+  --secondary: 94 20% 92%;
+  /* Very light sage */
   --secondary-foreground: 94 40% 30%;
-  
+
   --muted: 40 20% 92%;
   --muted-foreground: 220 10% 45%;
-  
-  --accent: 145 35% 25%;        /* Deep Green */
+
+  --accent: 145 35% 25%;
+  /* Deep Green */
   --accent-foreground: 45 30% 96%;
-  
+
   --destructive: 0 60% 55%;
   --destructive-foreground: 0 0% 98%;
 
@@ -37,7 +42,12 @@
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif font-semibold tracking-tight text-accent;
   }
 }

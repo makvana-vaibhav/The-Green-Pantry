@@ -80,7 +80,7 @@ export default function About() {
         <div className="rounded-3xl overflow-hidden aspect-[21/9] shadow-xl">
           {/* Colorful vegetable spread */}
           <img
-            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&q=80"
+            src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=80"
             alt="Fresh ingredients"
             className="w-full h-full object-cover"
           />

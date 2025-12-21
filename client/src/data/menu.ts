@@ -9,15 +9,16 @@ export interface MenuItem {
   available: boolean;
 }
 
-import mexicanHeat from "@/assets/menu_images/mexican_heat_wrap.png";
-import hummusHarmony from "@/assets/menu_images/hummus_harmony_wrap.png";
-import detoxElixir from "@/assets/menu_images/detox_elixir.png";
-import islandGlow from "@/assets/menu_images/island_glow.png";
+import wrapImage from "@/assets/wrap.jpg";
+import detoxElixir from "@/assets/menu_images/Detox Elixir Juice.JPG";
+import islandGlow from "@/assets/menu_images/Island Glow Juice.JPG";
 import pineappleParadise from "@/assets/menu_images/pineapple_paradise.png";
 import carrotCrush from "@/assets/menu_images/carrot_crush.png";
 import sunriseSqueeze from "@/assets/menu_images/sunrise_squeeze.png";
-import goldenCrunch from "@/assets/menu_images/golden_crunch_salad.png";
-import gardenDelight from "@/assets/menu_images/garden_delight_salad.png";
+import veggieBeans from "@/assets/menu_images/Veggie Beans Jumble Salad.PNG";
+import nutriBowl from "@/assets/menu_images/Nutri Bowl Salad.PNG";
+import fruityFusion from "@/assets/menu_images/Fruity Fusion.PNG";
+import burritoBowl from "@/assets/menu_images/Burrito Bowl.PNG";
 
 export const menuData: MenuItem[] = [
   // Salads
@@ -28,17 +29,7 @@ export const menuData: MenuItem[] = [
     price: 225,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80", // Salad bowl
-    available: true,
-  },
-  {
-    id: "2",
-    name: "Power Punch Salad",
-    description: "Lettuce, tomato, onion, zucchini, sprouts, tofu, olives with Thousand Island and chilli garlic.",
-    price: 259,
-    category: "Salads",
-    tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=800&q=80", // Tofu salad
+    imageUrl: veggieBeans,
     available: true,
   },
   {
@@ -48,27 +39,7 @@ export const menuData: MenuItem[] = [
     price: 259,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80", // Mixed bowl
-    available: true,
-  },
-  {
-    id: "4",
-    name: "Zesty Rainbow",
-    description: "Lettuce, red cabbage, chickpeas, zucchini, bell peppers, tomatoes, baby corn, broccoli with lemon-mint and honey mustard.",
-    price: 290,
-    category: "Salads",
-    tags: ["Vegetarian", "Vegan"],
-    imageUrl: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80", // Rainbow salad
-    available: true,
-  },
-  {
-    id: "5",
-    name: "Sprouts Spell",
-    description: "Lettuce, sprouts, onions, bell peppers, paneer, red cabbage, black olives with chipotle and mint mayonnaise.",
-    price: 290,
-    category: "Salads",
-    tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1607532941433-304659e8198a?w=800&q=80", // Sprouts/Paneerish
+    imageUrl: nutriBowl,
     available: true,
   },
   {
@@ -78,27 +49,7 @@ export const menuData: MenuItem[] = [
     price: 290,
     category: "Salads",
     tags: ["Vegetarian", "Vegan"],
-    imageUrl: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=800&q=80", // Fruit salad
-    available: true,
-  },
-  {
-    id: "7",
-    name: "Golden Crunch",
-    description: "Lettuce, quinoa, onions, baby corn, potato patty, kidney beans, cherry tomatoes, black olives with Ranch and mint mayonnaise.",
-    price: 305,
-    category: "Salads",
-    tags: ["Vegetarian", "High Protein"],
-    imageUrl: goldenCrunch,
-    available: true,
-  },
-  {
-    id: "8",
-    name: "Garden Delight",
-    description: "Lettuce, cucumber, cherry tomatoes, bell peppers, onion, carrot, corn, jalapenos and olives with Chilli garlic and honey mustard.",
-    price: 305,
-    category: "Salads",
-    tags: ["Vegetarian", "Low Cal"],
-    imageUrl: gardenDelight,
+    imageUrl: fruityFusion,
     available: true,
   },
   {
@@ -108,27 +59,7 @@ export const menuData: MenuItem[] = [
     price: 330,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=800&q=80", // Burrito bowl confirmed
-    available: true,
-  },
-  {
-    id: "10",
-    name: "Fusilli Fiesta",
-    description: "Lettuce, fusilli pasta, bell pepper, broccoli, zucchini, red cabbage, carrot, black olives, jalapenos with chipotle and thousand island.",
-    price: 330,
-    category: "Salads",
-    tags: ["Vegetarian"],
-    imageUrl: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&q=80", // Pasta salad
-    available: true,
-  },
-  {
-    id: "11",
-    name: "Millet Medley Salad",
-    description: "Lettuce, bajra, carrot, beetroot, cucumber, tomatoes, green capsicum, chickpeas, black olives with sweet onion and chipotle.",
-    price: 225,
-    category: "Salads",
-    tags: ["Vegetarian", "Vegan"],
-    imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80", // Millet/Grain bowl confirmed
+    imageUrl: burritoBowl,
     available: true,
   },
 
@@ -140,7 +71,7 @@ export const menuData: MenuItem[] = [
     price: 260,
     category: "Wraps",
     tags: ["Vegetarian"],
-    imageUrl: mexicanHeat,
+    imageUrl: wrapImage,
     available: true,
   },
   {
@@ -150,7 +81,7 @@ export const menuData: MenuItem[] = [
     price: 260,
     category: "Wraps",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: hummusHarmony,
+    imageUrl: wrapImage,
     available: true,
   },
   {
@@ -160,7 +91,7 @@ export const menuData: MenuItem[] = [
     price: 260,
     category: "Wraps",
     tags: ["Vegetarian", "Vegan"],
-    imageUrl: hummusHarmony, // distinct fallback until generation available
+    imageUrl: wrapImage,
     available: true,
   },
 

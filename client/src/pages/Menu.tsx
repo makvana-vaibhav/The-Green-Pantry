@@ -1,29 +1,10 @@
 import { MenuItemCard } from "@/components/MenuItemCard";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useMemo, useEffect } from "react";
-import { Search } from "lucide-react";
 import { menuData } from "@/data/menu";
-
-const CATEGORIES = ["All", "Salads", "Wraps", "Drinks"];
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
+import { ExternalLink } from "lucide-react";
 
 export default function MenuPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
-
-  // Scroll to top when category changes
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [activeCategory]);
-
-  const filteredItems = useMemo(() => {
-    return menuData.filter(item => {
-      const matchesCategory = activeCategory === "All" || item.category === activeCategory;
-      const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-  }, [activeCategory, searchQuery]);
-
   return (
     <div className="min-h-screen bg-background pb-24">
       <motion.div
@@ -46,84 +27,60 @@ export default function MenuPage() {
             transition={{ delay: 0.2 }}
             className="text-white/80 max-w-2xl mx-auto text-base"
           >
-            Seasonally inspired, locally sourced, and crafted for your well-being.
+            Your Daily Dose Of Goodness
           </motion.p>
         </div>
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Search & Filter Bar */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="sticky top-24 z-30 bg-background/95 backdrop-blur-xl py-4 mb-0 border-b border-border/50"
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
         >
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-
-            {/* Categories Scroll */}
-            <div className="overflow-x-auto pb-2 md:pb-0 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
-              <div className="flex gap-2">
-                {CATEGORIES.map((category) => (
-                  <motion.button
-                    key={category}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setActiveCategory(category)}
-                    className={`
-                      px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300
-                      ${activeCategory === category
-                        ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                        : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"}
-                    `}
-                  >
-                    {category}
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-
-            {/* Search Input */}
-            <div className="relative w-full md:w-72">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
-              <input
-                type="text"
-                placeholder="Search menu..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white border border-border focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
-              />
-            </div>
-          </div>
+          <AnimatePresence>
+            {menuData.map((item) => (
+              <MenuItemCard key={item.id} item={item} />
+            ))}
+          </AnimatePresence>
         </motion.div>
 
-        {/* Grid */}
-        {filteredItems.length === 0 ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-20"
-          >
-            <p className="text-muted-foreground text-lg">No items found matching your criteria.</p>
-            <button
-              onClick={() => { setActiveCategory("All"); setSearchQuery(""); }}
-              className="mt-4 text-primary hover:underline font-medium"
-            >
-              Clear filters
-            </button>
-          </motion.div>
-        ) : (
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
-          >
-            <AnimatePresence>
-              {filteredItems.map((item) => (
-                <MenuItemCard key={item.id} item={item} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        )}
+        <div className="mt-16 text-center">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-lg shadow-lg hover:bg-primary/90 transition-transform active:scale-95">
+                View Full Menu
+              </button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md rounded-2xl p-0 overflow-hidden bg-background">
+              <DialogTitle className="px-6 pt-6">Order Online</DialogTitle>
+              <div className="px-6 pb-0">
+                <p className="text-muted-foreground text-sm">Choose your preferred platform to access the full menu and order.</p>
+              </div>
+
+              <div className="p-6 space-y-3">
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    className="flex items-center justify-center gap-2 p-4 rounded-xl bg-card border border-border hover:bg-secondary/50 transition-colors font-medium text-foreground"
+                    onClick={() => window.open('https://www.zomato.com/rajkot/the-green-pantry-150-feet-ring-road', '_blank')}
+                  >
+                    <span className="text-red-500 font-bold">Zomato</span>
+                    <ExternalLink size={16} className="opacity-50" />
+                  </button>
+                  <button
+                    className="flex items-center justify-center gap-2 p-4 rounded-xl bg-card border border-border hover:bg-secondary/50 transition-colors font-medium text-foreground"
+                    onClick={() => window.open('https://www.swiggy.com/city/rajkot/the-green-pantry-madhapar-rest1238504', '_blank')}
+                  >
+                    <span className="text-orange-500 font-bold">Swiggy</span>
+                    <ExternalLink size={16} className="opacity-50" />
+                  </button>
+                </div>
+              </div>
+              <div className="px-6 py-4 bg-secondary/50 text-center text-xs text-muted-foreground">
+                Fresh, healthy meals delivered to your door.
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
     </div>
   );

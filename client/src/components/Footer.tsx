@@ -34,11 +34,11 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/70">
               <li className="flex items-center gap-2">
                 <Phone size={16} />
-                <span>0000000000</span>
+                <span>8200993808</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} />
-                <span>hello@greenpantry.com</span>
+                <span>thegreenpantry2025@gmail.com</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin size={16} />

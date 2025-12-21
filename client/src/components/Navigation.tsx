@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { Menu, X, Instagram, Phone } from "lucide-react";
+import { Menu, X, Instagram, Phone, ExternalLink } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 import logo from "@assets/logo.jpg";
 
@@ -42,14 +43,41 @@ export function Navigation() {
                 )}
               </Link>
             ))}
-            <a
-              href="https://wa.me/1234567890"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 active:translate-y-0"
-            >
-              Order Now
-            </a>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 active:translate-y-0">
+                  Order Now
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md rounded-2xl p-0 overflow-hidden bg-background">
+                <DialogTitle className="px-6 pt-6">Order Online</DialogTitle>
+                <div className="px-6 pb-0">
+                  <p className="text-muted-foreground text-sm">Choose your preferred platform to order from The Green Pantry.</p>
+                </div>
+
+                <div className="p-6 space-y-3">
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      className="flex items-center justify-center gap-2 p-4 rounded-xl bg-card border border-border hover:bg-secondary/50 transition-colors font-medium text-foreground"
+                      onClick={() => window.open('https://www.zomato.com/rajkot/the-green-pantry-150-feet-ring-road', '_blank')}
+                    >
+                      <span className="text-red-500 font-bold">Zomato</span>
+                      <ExternalLink size={16} className="opacity-50" />
+                    </button>
+                    <button
+                      className="flex items-center justify-center gap-2 p-4 rounded-xl bg-card border border-border hover:bg-secondary/50 transition-colors font-medium text-foreground"
+                      onClick={() => window.open('https://www.swiggy.com/city/rajkot/the-green-pantry-madhapar-rest1238504', '_blank')}
+                    >
+                      <span className="text-orange-500 font-bold">Swiggy</span>
+                      <ExternalLink size={16} className="opacity-50" />
+                    </button>
+                  </div>
+                </div>
+                <div className="px-6 py-4 bg-secondary/50 text-center text-xs text-muted-foreground">
+                  Fresh, healthy meals delivered to your door.
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Mobile Menu Button */}
@@ -84,7 +112,7 @@ export function Navigation() {
           ))}
           <div className="pt-4 flex items-center space-x-6 text-muted-foreground">
             <a href="https://www.instagram.com/greennpantry/" target="_blank" className="hover:text-primary transition-colors"><Instagram size={20} /></a>
-            <a href="tel:0000000000" className="hover:text-primary transition-colors"><Phone size={20} /></a>
+            <a href="tel:8200993808" className="hover:text-primary transition-colors"><Phone size={20} /></a>
           </div>
         </div>
       </motion.div>
