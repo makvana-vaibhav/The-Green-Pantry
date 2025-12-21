@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Leaf, Heart, Clock, Star } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
+import bowlImage from "@assets/stock_images/fresh_salad_bowl_iso_9b44dc3d.jpg";
 
 export default function Home() {
   const categories = [
@@ -92,7 +93,7 @@ export default function Home() {
             className="relative w-96 h-96 flex items-center justify-center"
           >
             <motion.img 
-              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=80" 
+              src={bowlImage}
               alt="Fresh Salad Bowl" 
               className="w-80 h-80 object-contain"
               animate={{ rotate: 360 }}
