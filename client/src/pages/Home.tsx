@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Leaf, Heart, Clock, Star } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
-import bowlImage from "@assets/hero_bowl.png";
+import bowlImage from "@/assets/hero_bowl.png";
 import wrapImage from "@/assets/wrap.jpg";
 import juiceImage from "@/assets/juice.png";
 
