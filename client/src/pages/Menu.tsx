@@ -1,6 +1,6 @@
 import { MenuItemCard } from "@/components/MenuItemCard";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Search } from "lucide-react";
 import { menuData } from "@/data/menu";
 
@@ -9,6 +9,11 @@ const CATEGORIES = ["All", "Salads", "Wraps", "Drinks"];
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Scroll to top when category changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [activeCategory]);
 
   const filteredItems = useMemo(() => {
     return menuData.filter(item => {
@@ -24,14 +29,14 @@ export default function MenuPage() {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="bg-accent py-20 px-4 mb-12"
+        className="bg-accent py-12 px-4 mb-12"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-serif font-bold text-white mb-6"
+            className="text-3xl md:text-4xl font-serif font-bold text-white mb-3"
           >
             Our Menu
           </motion.h1>
@@ -39,7 +44,7 @@ export default function MenuPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/80 max-w-2xl mx-auto text-lg"
+            className="text-white/80 max-w-2xl mx-auto text-base"
           >
             Seasonally inspired, locally sourced, and crafted for your well-being.
           </motion.p>

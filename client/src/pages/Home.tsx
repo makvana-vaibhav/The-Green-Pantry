@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Leaf, Heart, Clock, Star } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from "react";
 
 export default function Home() {
   const categories = [
@@ -41,6 +42,16 @@ export default function Home() {
       stars: 5
     }
   ];
+
+  const [reviewIndex, setReviewIndex] = useState(0);
+
+  const nextReview = () => {
+    setReviewIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
 
   return (
     <div className="min-h-screen">
@@ -189,25 +200,61 @@ export default function Home() {
             <p className="text-muted-foreground">Join thousands of happy customers enjoying The Green Pantry.</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {reviews.map((review, idx) => (
+          <div className="relative max-w-2xl mx-auto">
+            {/* Carousel */}
+            <AnimatePresence mode="wait">
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                key={reviewIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
                 className="bg-white rounded-2xl p-8 shadow-sm border border-border/50"
               >
                 <div className="flex gap-1 mb-4">
-                  {[...Array(review.stars)].map((_, i) => (
+                  {[...Array(reviews[reviewIndex].stars)].map((_, i) => (
                     <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-foreground italic mb-6 leading-relaxed">{review.text}</p>
-                <p className="text-muted-foreground font-medium">— {review.author}</p>
+                <p className="text-foreground italic mb-6 leading-relaxed text-lg">{reviews[reviewIndex].text}</p>
+                <p className="text-muted-foreground font-medium">— {reviews[reviewIndex].author}</p>
               </motion.div>
-            ))}
+            </AnimatePresence>
+
+            {/* Navigation Buttons */}
+            {reviews.length > 1 && (
+              <div className="flex justify-between items-center mt-8">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={prevReview}
+                  className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+                >
+                  ←
+                </motion.button>
+                
+                <div className="flex gap-2">
+                  {reviews.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setReviewIndex(idx)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        idx === reviewIndex ? "bg-primary w-8" : "bg-muted"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={nextReview}
+                  className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+                >
+                  →
+                </motion.button>
+              </div>
+            )}
           </div>
         </div>
       </section>

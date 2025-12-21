@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <div className="relative h-[60vh] overflow-hidden flex items-center justify-center">
+      <div className="relative h-[45vh] overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           {/* Chef cooking fresh food */}
           <img 
