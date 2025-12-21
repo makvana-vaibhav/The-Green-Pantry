@@ -2,54 +2,59 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Leaf, Heart, Clock, Star } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
-import bowlImage from "@assets/stock_images/fresh_salad_bowl_iso_9b44dc3d.jpg";
+import bowlImage from "@assets/hero_bowl.png";
 
 export default function Home() {
   const categories = [
-    { 
-      name: "Fresh Salads", 
-      desc: "Crunchy, colorful, and packed with nutrients.", 
+    {
+      name: "Fresh Salads",
+      desc: "Crunchy, colorful, and packed with nutrients.",
       img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
       link: "/menu?category=Salads"
     },
-    { 
-      name: "Wholesome Wraps", 
-      desc: "Perfectly balanced meals in a convenient hold.", 
+    {
+      name: "Wholesome Wraps",
+      desc: "Perfectly balanced meals in a convenient hold.",
       img: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&q=80",
       link: "/menu?category=Wraps"
     },
-    { 
-      name: "Cold-Pressed Juices", 
-      desc: "100% natural hydration with zero added sugar.", 
-      img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
+    {
+      name: "Cold-Pressed Juices",
+      desc: "100% natural hydration with zero added sugar.",
+      img: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=800&q=80",
       link: "/menu?category=Drinks"
     },
   ];
 
   const reviews = [
     {
-      text: "The quality of ingredients is outstanding. Every salad tastes fresh and vibrant. The Green Pantry has become my go-to for healthy meals.",
-      author: "Priya Sharma",
+      text: "The best wraps and salads in Rajkot. Food: 5/5 | Service: 5/5 | Atmosphere: 5/5",
+      author: "Nimisha Unadkat",
       stars: 5
     },
     {
-      text: "Finally, a place that understands clean eating. The wraps are delicious and actually filling. No compromise on taste or health.",
-      author: "Rahul Mehta",
+      text: "Very quick and great service… quality of food is really nice and gets prepared fresh when ordered… must try once… really loved the taste..",
+      author: "Harnish Mehta",
       stars: 5
     },
     {
-      text: "Their cold-pressed juices are incredible. You can taste the freshness in every sip. Perfect for my morning routine.",
-      author: "Ananya Desai",
+      text: "Best quality of Wrap and healthy salads. Food: 5/5 | Service: 5/5",
+      author: "Vishal Gosai",
+      stars: 5
+    },
+    {
+      text: "Healthy, tasty and affordable salads. Food: 5/5 | Service: 5/5 | Atmosphere: 5/5",
+      author: "Jui Vanzara",
+      stars: 5
+    },
+    {
+      text: "New. Food: 5/5 | Service: 5/5 | Atmosphere: 5/5",
+      author: "ARYAN JADAV",
       stars: 5
     }
   ];
 
   const [reviewIndex, setReviewIndex] = useState(0);
-
-  // Scroll to reviews section when review changes
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [reviewIndex]);
 
   const nextReview = () => {
     setReviewIndex((prev) => (prev + 1) % reviews.length);
@@ -62,18 +67,18 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-secondary/30 overflow-hidden">
+      <section className="relative min-h-screen flex items-start md:items-center justify-center bg-secondary/30 overflow-hidden pt-32 md:pt-0">
         <div className="absolute inset-0 z-0 opacity-10 pattern-dots" />
-        
-        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
-          <motion.div 
+
+        <div className="container mx-auto px-6 md:pl-24 md:pr-12 grid md:grid-cols-2 gap-12 items-center relative z-10">
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-left space-y-6"
           >
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-accent leading-[1.1]">
-              Healthy eating, <br/>
+              Healthy eating, <br />
               <span className="italic text-primary">crafted daily.</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
@@ -86,16 +91,16 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
             className="relative w-96 h-96 flex items-center justify-center"
           >
-            <motion.img 
+            <motion.img
               src={bowlImage}
-              alt="Fresh Salad Bowl" 
-              className="w-80 h-80 object-contain"
+              alt="Fresh Salad Bowl"
+              className="w-[500px] h-[500px] object-contain drop-shadow-2xl mix-blend-multiply"
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
             />
@@ -106,7 +111,7 @@ export default function Home() {
       {/* Features / Why Us */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -122,7 +127,7 @@ export default function Home() {
               { icon: Heart, title: "Nutrition First", desc: "Every meal is balanced by certified nutritionists for optimal health." },
               { icon: Clock, title: "Freshly Prepared", desc: "Made to order. No preservatives, no frozen ingredients, ever." }
             ].map((feature, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +149,7 @@ export default function Home() {
       {/* Categories */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -162,7 +167,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {categories.map((cat, idx) => (
               <Link key={idx} href={cat.link}>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -172,9 +177,9 @@ export default function Home() {
                 >
                   <div className="aspect-square rounded-2xl overflow-hidden mb-6 relative">
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors z-10" />
-                    <img 
-                      src={cat.img} 
-                      alt={cat.name} 
+                    <img
+                      src={cat.img}
+                      alt={cat.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
@@ -184,9 +189,9 @@ export default function Home() {
               </Link>
             ))}
           </div>
-          
+
           <div className="mt-8 text-center md:hidden">
-             <Link href="/menu" className="inline-flex items-center gap-2 text-primary font-medium">
+            <Link href="/menu" className="inline-flex items-center gap-2 text-primary font-medium">
               View Full Menu <ArrowRight size={16} />
             </Link>
           </div>
@@ -196,7 +201,7 @@ export default function Home() {
       {/* Reviews Section */}
       <section className="py-24 bg-secondary/20">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -238,15 +243,14 @@ export default function Home() {
                 >
                   ←
                 </motion.button>
-                
+
                 <div className="flex gap-2">
                   {reviews.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setReviewIndex(idx)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        idx === reviewIndex ? "bg-primary w-8" : "bg-muted"
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-all ${idx === reviewIndex ? "bg-primary w-8" : "bg-muted"
+                        }`}
                     />
                   ))}
                 </div>

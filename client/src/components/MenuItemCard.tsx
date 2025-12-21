@@ -14,7 +14,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
   // Helper for WhatsApp ordering
   const getWhatsappUrl = () => {
     const text = `Hi The Green Pantry, I'd like to order ${item.name}.`;
-    return `https://wa.me/919876543210?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/910000000000?text=${encodeURIComponent(text)}`;
   };
 
   return (
@@ -53,7 +53,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
             ₹{item.price}
           </span>
         </div>
-        
+
         <p className="text-muted-foreground text-sm line-clamp-2 mb-4 h-10">
           {item.description}
         </p>
@@ -70,7 +70,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
-            <button 
+            <button
               disabled={!item.available}
               className="w-full py-3 rounded-xl font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
             >
@@ -82,9 +82,9 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
             <div className="px-6 pb-0">
               <p className="text-muted-foreground text-sm">Choose your preferred platform to get your {item.name}.</p>
             </div>
-            
+
             <div className="p-6 space-y-3">
-              <a 
+              <a
                 href={getWhatsappUrl()}
                 target="_blank"
                 rel="noreferrer"
@@ -93,18 +93,18 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
                 <MessageCircle size={20} />
                 Order via WhatsApp
               </a>
-              
+
               <div className="grid grid-cols-2 gap-3">
-                <button 
+                <button
                   className="flex items-center justify-center gap-2 p-4 rounded-xl bg-card border border-border hover:bg-secondary/50 transition-colors font-medium text-foreground"
-                  onClick={() => window.open('https://zomato.com', '_blank')}
+                  onClick={() => window.open('https://www.zomato.com/rajkot/the-green-pantry-150-feet-ring-road', '_blank')}
                 >
                   <span className="text-red-500 font-bold">Zomato</span>
                   <ExternalLink size={16} className="opacity-50" />
                 </button>
-                <button 
+                <button
                   className="flex items-center justify-center gap-2 p-4 rounded-xl bg-card border border-border hover:bg-secondary/50 transition-colors font-medium text-foreground"
-                  onClick={() => window.open('https://swiggy.com', '_blank')}
+                  onClick={() => window.open('https://www.swiggy.com/city/rajkot/the-green-pantry-madhapar-rest1238504', '_blank')}
                 >
                   <span className="text-orange-500 font-bold">Swiggy</span>
                   <ExternalLink size={16} className="opacity-50" />

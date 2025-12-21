@@ -8,22 +8,22 @@ export default function About() {
       <div className="relative h-[45vh] overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           {/* Chef cooking fresh food */}
-          <img 
-            src="https://pixabay.com/get/ga03f442e651f49a36ce06cbf230660b97fd66eefc39ea0630bfc780e4b142cdf5127da8c508e0e53a845d3a64020dfa790d5745d2d3e6bf63a6ef871d1362a4a_1280.png" 
-            alt="Chef cooking" 
+          <img
+            src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1280&q=80"
+            alt="Fresh healthy ingredients"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/50" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-7xl font-serif font-bold mb-6"
           >
             Our Story
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -79,9 +79,9 @@ export default function About() {
         {/* Closing Image */}
         <div className="rounded-3xl overflow-hidden aspect-[21/9] shadow-xl">
           {/* Colorful vegetable spread */}
-          <img 
-            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&q=80" 
-            alt="Fresh ingredients" 
+          <img
+            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&q=80"
+            alt="Fresh ingredients"
             className="w-full h-full object-cover"
           />
         </div>

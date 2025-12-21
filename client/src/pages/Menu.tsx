@@ -18,21 +18,21 @@ export default function MenuPage() {
   const filteredItems = useMemo(() => {
     return menuData.filter(item => {
       const matchesCategory = activeCategory === "All" || item.category === activeCategory;
-      const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                            item.description.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, searchQuery]);
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="bg-accent py-12 px-4 mb-12"
+        className="bg-accent py-12 px-4 mb-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -40,7 +40,7 @@ export default function MenuPage() {
           >
             Our Menu
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -53,14 +53,14 @@ export default function MenuPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Search & Filter Bar */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="sticky top-24 z-30 bg-background/95 backdrop-blur-xl py-4 mb-0 border-b border-border/50"
         >
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+
             {/* Categories Scroll */}
             <div className="overflow-x-auto pb-2 md:pb-0 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
               <div className="flex gap-2">
@@ -72,8 +72,8 @@ export default function MenuPage() {
                     onClick={() => setActiveCategory(category)}
                     className={`
                       px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300
-                      ${activeCategory === category 
-                        ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25" 
+                      ${activeCategory === category
+                        ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
                         : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"}
                     `}
                   >
@@ -99,13 +99,13 @@ export default function MenuPage() {
 
         {/* Grid */}
         {filteredItems.length === 0 ? (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
             <p className="text-muted-foreground text-lg">No items found matching your criteria.</p>
-            <button 
+            <button
               onClick={() => { setActiveCategory("All"); setSearchQuery(""); }}
               className="mt-4 text-primary hover:underline font-medium"
             >
@@ -113,7 +113,7 @@ export default function MenuPage() {
             </button>
           </motion.div>
         ) : (
-          <motion.div 
+          <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
           >

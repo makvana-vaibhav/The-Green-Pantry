@@ -1,25 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
-import { api } from "@shared/routes";
+import { menuData, type MenuItem } from "@/data/menu";
 
 export function useMenu() {
   return useQuery({
-    queryKey: [api.menu.list.path],
+    queryKey: ["/api/menu"],
     queryFn: async () => {
-      const res = await fetch(api.menu.list.path);
-      if (!res.ok) throw new Error("Failed to fetch menu");
-      return api.menu.list.responses[200].parse(await res.json());
+      // Return static data immediately
+      return menuData;
     },
   });
 }
 
 export function useMenuItem(id: number) {
   return useQuery({
-    queryKey: [api.menu.get.path, id],
+    queryKey: [`/api/menu/${id}`],
     queryFn: async () => {
-      const res = await fetch(api.menu.get.path.replace(":id", String(id)));
-      if (res.status === 404) return null;
-      if (!res.ok) throw new Error("Failed to fetch menu item");
-      return api.menu.get.responses[200].parse(await res.json());
+      const item = menuData.find((i) => Number(i.id) === id);
+      if (!item) throw new Error("Item not found");
+      return item;
     },
   });
 }

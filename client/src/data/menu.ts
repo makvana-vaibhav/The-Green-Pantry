@@ -9,6 +9,16 @@ export interface MenuItem {
   available: boolean;
 }
 
+import mexicanHeat from "@/assets/menu_images/mexican_heat_wrap.png";
+import hummusHarmony from "@/assets/menu_images/hummus_harmony_wrap.png";
+import detoxElixir from "@/assets/menu_images/detox_elixir.png";
+import islandGlow from "@/assets/menu_images/island_glow.png";
+import pineappleParadise from "@/assets/menu_images/pineapple_paradise.png";
+import carrotCrush from "@/assets/menu_images/carrot_crush.png";
+import sunriseSqueeze from "@/assets/menu_images/sunrise_squeeze.png";
+import goldenCrunch from "@/assets/menu_images/golden_crunch_salad.png";
+import gardenDelight from "@/assets/menu_images/garden_delight_salad.png";
+
 export const menuData: MenuItem[] = [
   // Salads
   {
@@ -18,7 +28,7 @@ export const menuData: MenuItem[] = [
     price: 225,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80", // Salad bowl
     available: true,
   },
   {
@@ -28,7 +38,7 @@ export const menuData: MenuItem[] = [
     price: 259,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=800&q=80", // Tofu salad
     available: true,
   },
   {
@@ -38,7 +48,7 @@ export const menuData: MenuItem[] = [
     price: 259,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80", // Mixed bowl
     available: true,
   },
   {
@@ -48,7 +58,7 @@ export const menuData: MenuItem[] = [
     price: 290,
     category: "Salads",
     tags: ["Vegetarian", "Vegan"],
-    imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80", // Rainbow salad
     available: true,
   },
   {
@@ -58,7 +68,7 @@ export const menuData: MenuItem[] = [
     price: 290,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1607532941433-304659e8198a?w=800&q=80", // Sprouts/Paneerish
     available: true,
   },
   {
@@ -68,7 +78,7 @@ export const menuData: MenuItem[] = [
     price: 290,
     category: "Salads",
     tags: ["Vegetarian", "Vegan"],
-    imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=800&q=80", // Fruit salad
     available: true,
   },
   {
@@ -78,7 +88,7 @@ export const menuData: MenuItem[] = [
     price: 305,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
+    imageUrl: goldenCrunch,
     available: true,
   },
   {
@@ -88,7 +98,7 @@ export const menuData: MenuItem[] = [
     price: 305,
     category: "Salads",
     tags: ["Vegetarian", "Low Cal"],
-    imageUrl: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80",
+    imageUrl: gardenDelight,
     available: true,
   },
   {
@@ -98,7 +108,7 @@ export const menuData: MenuItem[] = [
     price: 330,
     category: "Salads",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=800&q=80", // Burrito bowl confirmed
     available: true,
   },
   {
@@ -108,7 +118,7 @@ export const menuData: MenuItem[] = [
     price: 330,
     category: "Salads",
     tags: ["Vegetarian"],
-    imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&q=80", // Pasta salad
     available: true,
   },
   {
@@ -118,7 +128,7 @@ export const menuData: MenuItem[] = [
     price: 225,
     category: "Salads",
     tags: ["Vegetarian", "Vegan"],
-    imageUrl: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80", // Millet/Grain bowl confirmed
     available: true,
   },
 
@@ -130,7 +140,7 @@ export const menuData: MenuItem[] = [
     price: 260,
     category: "Wraps",
     tags: ["Vegetarian"],
-    imageUrl: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&q=80",
+    imageUrl: mexicanHeat,
     available: true,
   },
   {
@@ -140,7 +150,7 @@ export const menuData: MenuItem[] = [
     price: 260,
     category: "Wraps",
     tags: ["Vegetarian", "High Protein"],
-    imageUrl: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&q=80",
+    imageUrl: hummusHarmony,
     available: true,
   },
   {
@@ -150,7 +160,7 @@ export const menuData: MenuItem[] = [
     price: 260,
     category: "Wraps",
     tags: ["Vegetarian", "Vegan"],
-    imageUrl: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800&q=80",
+    imageUrl: hummusHarmony, // distinct fallback until generation available
     available: true,
   },
 
@@ -162,7 +172,7 @@ export const menuData: MenuItem[] = [
     price: 195,
     category: "Drinks",
     tags: ["Vegan", "Cold Pressed"],
-    imageUrl: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
+    imageUrl: detoxElixir,
     available: true,
   },
   {
@@ -172,7 +182,7 @@ export const menuData: MenuItem[] = [
     price: 195,
     category: "Drinks",
     tags: ["Vegan", "Cold Pressed"],
-    imageUrl: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
+    imageUrl: islandGlow,
     available: true,
   },
   {
@@ -182,7 +192,7 @@ export const menuData: MenuItem[] = [
     price: 195,
     category: "Drinks",
     tags: ["Vegan", "Cold Pressed"],
-    imageUrl: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
+    imageUrl: pineappleParadise,
     available: true,
   },
   {
@@ -192,7 +202,7 @@ export const menuData: MenuItem[] = [
     price: 195,
     category: "Drinks",
     tags: ["Vegan", "Cold Pressed"],
-    imageUrl: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
+    imageUrl: carrotCrush,
     available: true,
   },
   {
@@ -202,7 +212,7 @@ export const menuData: MenuItem[] = [
     price: 195,
     category: "Drinks",
     tags: ["Vegan", "Cold Pressed"],
-    imageUrl: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
+    imageUrl: sunriseSqueeze,
     available: true,
   },
 ];
