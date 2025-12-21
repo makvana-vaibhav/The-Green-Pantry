@@ -49,7 +49,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
           <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-primary transition-colors flex-1">
             {item.name}
           </h3>
-          <span className="font-serif text-3xl font-bold text-accent ml-2">
+          <span className="font-serif text-xl font-bold text-accent ml-2">
             ₹{item.price}
           </span>
         </div>

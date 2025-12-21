@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Leaf, Heart, Clock, Star } from "lucide-react";
 import { Link } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const categories = [
@@ -44,6 +44,11 @@ export default function Home() {
   ];
 
   const [reviewIndex, setReviewIndex] = useState(0);
+
+  // Scroll to reviews section when review changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [reviewIndex]);
 
   const nextReview = () => {
     setReviewIndex((prev) => (prev + 1) % reviews.length);
