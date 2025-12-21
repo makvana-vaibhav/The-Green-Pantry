@@ -1,65 +1,69 @@
-import { useMenu } from "@/hooks/use-menu";
 import { MenuItemCard } from "@/components/MenuItemCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
-import { Loader2, Search } from "lucide-react";
+import { Search } from "lucide-react";
+import { menuData } from "@/data/menu";
 
 const CATEGORIES = ["All", "Salads", "Wraps", "Drinks"];
 
 export default function MenuPage() {
-  const { data: menuItems, isLoading, error } = useMenu();
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredItems = useMemo(() => {
-    if (!menuItems) return [];
-    
-    return menuItems.filter(item => {
+    return menuData.filter(item => {
       const matchesCategory = activeCategory === "All" || item.category === activeCategory;
       const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             item.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [menuItems, activeCategory, searchQuery]);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background text-destructive">
-        <p>Failed to load menu. Please try again later.</p>
-      </div>
-    );
-  }
+  }, [activeCategory, searchQuery]);
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      <div className="bg-accent py-20 px-4 mb-12">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="bg-accent py-20 px-4 mb-12"
+      >
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Our Menu</h1>
-          <p className="text-white/80 max-w-2xl mx-auto text-lg">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-serif font-bold text-white mb-6"
+          >
+            Our Menu
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white/80 max-w-2xl mx-auto text-lg"
+          >
             Seasonally inspired, locally sourced, and crafted for your well-being.
-          </p>
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Search & Filter Bar */}
-        <div className="sticky top-24 z-30 bg-background/95 backdrop-blur-xl py-4 mb-0 border-b border-border/50">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="sticky top-24 z-30 bg-background/95 backdrop-blur-xl py-4 mb-0 border-b border-border/50"
+        >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             
             {/* Categories Scroll */}
             <div className="overflow-x-auto pb-2 md:pb-0 hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
               <div className="flex gap-2">
                 {CATEGORIES.map((category) => (
-                  <button
+                  <motion.button
                     key={category}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveCategory(category)}
                     className={`
                       px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300
@@ -69,7 +73,7 @@ export default function MenuPage() {
                     `}
                   >
                     {category}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -86,11 +90,15 @@ export default function MenuPage() {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Grid */}
         {filteredItems.length === 0 ? (
-          <div className="text-center py-20">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-20"
+          >
             <p className="text-muted-foreground text-lg">No items found matching your criteria.</p>
             <button 
               onClick={() => { setActiveCategory("All"); setSearchQuery(""); }}
@@ -98,11 +106,11 @@ export default function MenuPage() {
             >
               Clear filters
             </button>
-          </div>
+          </motion.div>
         ) : (
           <motion.div 
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
           >
             <AnimatePresence>
               {filteredItems.map((item) => (

@@ -1,8 +1,8 @@
-import { type MenuItem } from "@shared/schema";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
 import { MessageCircle, ExternalLink, Leaf } from "lucide-react";
+import type { MenuItem } from "@/data/menu";
 
 interface MenuItemCardProps {
   item: MenuItem;

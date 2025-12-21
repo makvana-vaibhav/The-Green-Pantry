@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Leaf, Heart, Clock } from "lucide-react";
+import { ArrowRight, Leaf, Heart, Clock, Star } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
@@ -22,6 +22,24 @@ export default function Home() {
       img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80",
       link: "/menu?category=Drinks"
     },
+  ];
+
+  const reviews = [
+    {
+      text: "The quality of ingredients is outstanding. Every salad tastes fresh and vibrant. The Green Pantry has become my go-to for healthy meals.",
+      author: "Priya Sharma",
+      stars: 5
+    },
+    {
+      text: "Finally, a place that understands clean eating. The wraps are delicious and actually filling. No compromise on taste or health.",
+      author: "Rahul Mehta",
+      stars: 5
+    },
+    {
+      text: "Their cold-pressed juices are incredible. You can taste the freshness in every sip. Perfect for my morning routine.",
+      author: "Ananya Desai",
+      stars: 5
+    }
   ];
 
   return (
@@ -55,17 +73,15 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative w-96 h-96"
+            className="relative w-96 h-96 flex items-center justify-center"
           >
-            <div className="relative z-10 w-full h-full rounded-[3rem] overflow-hidden bg-white flex items-center justify-center">
-              <motion.img 
-                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=80" 
-                alt="Fresh Salad Bowl" 
-                className="w-80 h-80 object-cover"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              />
-            </div>
+            <motion.img 
+              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=80" 
+              alt="Fresh Salad Bowl" 
+              className="w-80 h-80 object-contain"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            />
           </motion.div>
         </div>
       </section>
@@ -73,10 +89,15 @@ export default function Home() {
       {/* Features / Why Us */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-accent mb-4">Why The Green Pantry?</h2>
             <p className="text-muted-foreground">We believe food should be your medicine, but taste like a treat.</p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -106,7 +127,12 @@ export default function Home() {
       {/* Categories */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex justify-between items-end mb-12"
+          >
             <div>
               <h2 className="text-4xl font-serif font-bold text-accent mb-2">Curated Categories</h2>
               <p className="text-muted-foreground">Explore our chef's selection.</p>
@@ -114,12 +140,16 @@ export default function Home() {
             <Link href="/menu" className="hidden md:flex items-center gap-2 text-primary font-medium hover:underline">
               View Full Menu <ArrowRight size={16} />
             </Link>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {categories.map((cat, idx) => (
               <Link key={idx} href={cat.link}>
                 <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
                   whileHover={{ y: -8 }}
                   className="group cursor-pointer"
                 >
@@ -142,6 +172,42 @@ export default function Home() {
              <Link href="/menu" className="inline-flex items-center gap-2 text-primary font-medium">
               View Full Menu <ArrowRight size={16} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="py-24 bg-secondary/20">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <h2 className="text-4xl font-serif font-bold text-accent mb-4">What Our Customers Say</h2>
+            <p className="text-muted-foreground">Join thousands of happy customers enjoying The Green Pantry.</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {reviews.map((review, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white rounded-2xl p-8 shadow-sm border border-border/50"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(review.stars)].map((_, i) => (
+                    <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-foreground italic mb-6 leading-relaxed">{review.text}</p>
+                <p className="text-muted-foreground font-medium">— {review.author}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
