@@ -21,9 +21,9 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="group bg-white rounded-xl overflow-hidden shadow-sm border border-border/50 hover:shadow-lg transition-all duration-300 flex flex-col h-full"
+      className="group bg-card rounded-2xl overflow-hidden shadow-sm border border-border/50 hover:shadow-xl hover:border-primary/20 transition-all duration-300"
     >
-      <div className="relative h-40 overflow-hidden bg-secondary">
+      <div className="relative aspect-square overflow-hidden bg-secondary">
         {item.imageUrl ? (
           <img
             src={item.imageUrl}
@@ -44,38 +44,37 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
         )}
       </div>
 
-      <div className="p-4 flex-1 flex flex-col">
-        <h3 className="font-serif text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-          {item.name}
-        </h3>
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="font-serif text-xl font-semibold text-foreground group-hover:text-primary transition-colors flex-1">
+            {item.name}
+          </h3>
+          <span className="font-serif text-3xl font-bold text-accent ml-2">
+            ₹{item.price}
+          </span>
+        </div>
         
-        <p className="text-muted-foreground text-xs line-clamp-2 mb-3 flex-1">
+        <p className="text-muted-foreground text-sm line-clamp-2 mb-4 h-10">
           {item.description}
         </p>
 
         {item.tags && item.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mb-3">
+          <div className="flex flex-wrap gap-2 mb-6">
             {item.tags.map((tag, i) => (
-              <span key={i} className="text-[9px] uppercase tracking-wider font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
+              <span key={i} className="text-[10px] uppercase tracking-wider font-semibold text-primary bg-primary/10 px-2 py-1 rounded-md">
                 {tag}
               </span>
             ))}
           </div>
         )}
 
-        <div className="flex items-center justify-between pt-3 border-t border-border/30">
-          <span className="font-serif text-2xl font-bold text-accent">
-            ₹{item.price}
-          </span>
-        </div>
-
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
             <button 
               disabled={!item.available}
-              className="w-full mt-3 py-2 rounded-lg font-semibold text-sm bg-accent text-accent-foreground hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
+              className="w-full py-3 rounded-xl font-semibold bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
             >
-              Order
+              Order Now
             </button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-md rounded-2xl p-0 overflow-hidden bg-background">
