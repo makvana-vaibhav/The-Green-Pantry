@@ -38,18 +38,3 @@ Frontend:
 - Wouter for lightweight routing
 
 ---
-
-## Deployment
-
-This project is designed for static hosting and can be deployed on platforms such as:
-
-- GitHub Pages  
-- Netlify  
-- Vercel  
-
-### GitHub Pages Note
-
-The project uses a base path configuration in `vite.config.ts`:
-
-```ts
-base: '/The-Green-Pantry/'
